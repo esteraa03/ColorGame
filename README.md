@@ -7,17 +7,26 @@ Your score will be displayed at the end of the game when time is up.
 
 For example:
 ![photoGameGitHub](https://github.com/user-attachments/assets/2690838d-49f8-446b-9862-effb8ebd92c1)
-In this image the right answer will be the buttons *Red* with the background *green*
+In this image, the right answer will be the button *Red* with the background *green*
 
-### Tehnologies used:
--**Java**   *- Java is the principal language used for develop this game.* 
--**Swing**  *- Swing is the Java library used for create the  graphic interface of this game.*     
+### Technologies used:
+-**Java**   *- is the principal language used to develop this game.* 
+-**Swing**  *- is the Java library used to create the graphic interface of this game.*     
 
 
 ### How to run the Game:
+1. Clone the repository: 
 ```
 git clone https://github.com/yourusername/color-game.git
+```
+
+2. Compile the Java files:
+```
 javac src/mycolorgame/*.java
+```
+
+3. Run the game
+```
 java mycolorgame.ui.MainView
 ```
 
