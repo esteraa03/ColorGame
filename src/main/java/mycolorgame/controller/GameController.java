@@ -18,22 +18,22 @@ public class GameController {
     }
 
     private void addListeners() {
-        // Butonul de start
+
         view.startButton.addActionListener(e -> {
             view.showGamePanel();
-            logic.startTimer(view.timerLabel);  // Startăm timerul
-            logic.generateNewQuestion(view.answerButtons, view.questionLabel);  // Generăm o întrebare
+            logic.startTimer(view.timerLabel);
+            logic.generateNewQuestion(view.answerButtons, view.questionLabel);
         });
 
-        // Ascultăm acțiunile pe butoane
+
         for (JButton button : view.answerButtons) {
             button.addActionListener(e -> {
                 boolean correct = logic.checkAnswer(button);
 
-                // Actualizează scorul în interfața utilizatorului
+
                 view.scoreLabel.setText("Scor: " + logic.getScore());
 
-                // Generăm o nouă întrebare după fiecare răspuns
+
                 logic.generateNewQuestion(view.answerButtons, view.questionLabel);
             });
         }

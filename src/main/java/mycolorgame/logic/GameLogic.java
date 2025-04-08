@@ -19,11 +19,11 @@ public class GameLogic {
     private Timer timer;
     private Color correctAnswer;
 
-    // Definirea culorilor disponibile
+
     private final String[] colorNames = {"Red", "Blue", "Green", "Yellow"};
 
 
-    // Modificarea metodei startTimer
+
     public void startTimer(JLabel timerLabel) {
         timer = new Timer(1000, e -> {
             timeLeft--;
@@ -38,7 +38,7 @@ public class GameLogic {
     }
 
     public void generateNewQuestion(JButton[] answerButtons, JLabel questionLabel) {
-        // Lista de culori disponibile și numele lor
+
         Color[] colors = {
                 new Color(255, 0, 0),     // Roșu
                 new Color(0, 0, 255),     // Albastru
@@ -55,19 +55,19 @@ public class GameLogic {
                 "Pink", "Purple", "Orange", "Cyan"
         };
 
-        // Alegem un răspuns corect random
+
         int correctIndex = (int)(Math.random() * colors.length);
         Color correctColor = colors[correctIndex];
         correctAnswer = colors[correctIndex];
 
-        // Setăm întrebarea (colorăm și textul)
+
         questionLabel.setText(colorNames[correctIndex]);
         questionLabel.setForeground(correctColor);
 
-        // Alegem un buton random care va avea culoarea corectă
+
         int correctButtonIndex = (int)(Math.random() * answerButtons.length);
 
-        // Lista de indexuri greșite pentru texte
+
         List<Integer> wrongIndices = new ArrayList<>();
         for (int i = 0; i < colorNames.length; i++) {
             if (i != correctIndex) wrongIndices.add(i);
@@ -78,22 +78,22 @@ public class GameLogic {
             JButton button = answerButtons[i];
 
             if (i == correctButtonIndex) {
-                // Butonul corect - culoarea e corectă, textul e greșit
+
                 button.setBackground(correctColor);
                 button.setOpaque(true);
                 button.setBorderPainted(false);
 
-                // Alegem un text greșit aleator
+
                 String wrongText = colorNames[wrongIndices.get(0)];
                 button.setText(wrongText);
             } else {
-                // Culoare aleatoare greșită
+
                 int randWrongColorIndex = wrongIndices.remove(0);
                 button.setBackground(colors[randWrongColorIndex]);
                 button.setOpaque(true);
                 button.setBorderPainted(false);
 
-                // Textul e alt nume greșit (random din cele greșite)
+
                 String randomWrongText = colorNames[wrongIndices.get(0)];
                 button.setText(randomWrongText);
             }
@@ -102,10 +102,10 @@ public class GameLogic {
 
 
     public boolean checkAnswer(JButton selectedButton) {
-        // Obținem culoarea butonului selectat
+
         Color selectedColor = selectedButton.getBackground();
 
-        // Verificăm dacă culoarea butonului selectat este culoarea corectă
+
         if (selectedColor.equals(correctAnswer)) {
             score++;
             return true;

@@ -26,7 +26,6 @@ public class MainView extends JFrame {
         this.setIconImage(logo.getImage());
         this.getContentPane().setBackground(Color.WHITE);
 
-
         setupStartPanel();
         setupGamePanel();
     }
@@ -48,22 +47,22 @@ public class MainView extends JFrame {
         gamePanel.setLayout(new BorderLayout());
         gamePanel.setBackground(Color.WHITE);
 
-        // Top - Timer și Scor
+
         JPanel topPanel = new JPanel(new FlowLayout());
         topPanel.setBackground(Color.WHITE);
         topPanel.add(timerLabel);
         topPanel.add(scoreLabel);
 
-        // Centru - Întrebare
+
         questionLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
         questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        // Jos - Butoane
+
         JPanel buttonPanel = new JPanel(new GridLayout(2, 2, 10, 10));
         buttonPanel.setBackground(Color.WHITE);
         for (int i = 0; i < 4; i++) {
-            answerButtons[i] = new JButton(); // <-- butoanele sunt create acum!
+            answerButtons[i] = new JButton();
             answerButtons[i].setFont(new Font("SansSerif", Font.PLAIN, 16));
             buttonPanel.add(answerButtons[i]);
         }
